@@ -26,7 +26,7 @@ server.get('/api/users', tokenCheck, async (req,res) => {
 
 server.post('/api/register', async (req,res) => {
     let user = req.body;
-    if (!user.username || !user.password) {
+    if (!user.username || !user.password || !user.department) {
         res.status(400).json({error:'please provide username/password'});
     } else {
         user.password = bcrypt.hashSync(user.password, 8);
@@ -102,7 +102,7 @@ function generateToken(user) {
     const payload = {
       subject: user.id,
       username: user.username,
-      roles: ['student','ta'],
+      department: user.department,
     };
     const options = {
       expiresIn: '1d',
