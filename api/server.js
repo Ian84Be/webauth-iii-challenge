@@ -2,12 +2,14 @@
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const helmet = require('helmet');
+const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const secrets = require('./secrets.js');
 
 const server = express();
 server.use(helmet());
 server.use(express.json());
+server.use(cors());
 
 // const restrictedRouter = require('./restricted-router.js');
 // server.use('/api/restricted', tokenCheck, restrictedRouter);
