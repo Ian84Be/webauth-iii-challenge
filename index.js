@@ -1,6 +1,6 @@
 
 require('dotenv').config();
-const server = require('./server.js');
+const server = require('./api/server.js');
 
 server.get('/', (req, res) => {
     res.send('no place in the world');
