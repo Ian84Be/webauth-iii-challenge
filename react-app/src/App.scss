@@ -1,0 +1,43 @@
+
+@mixin center() {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  @include center;
+  border:1px solid red;
+  flex-direction: column;
+
+  header{
+    @include center;
+    border:1px solid green;
+    padding:8px;
+    width:100%;
+    a {
+      margin: 0 1rem;
+  
+      &:hover {
+        color:green;
+      }
+    }
+  }
+
+  main {
+    @include center;
+    // border:1px solid orange;
+
+    form {
+      @include center;
+      // border:1px solid red;
+      flex-direction: column;
+      padding:8px;
+
+      input {
+        margin:8px;
+      }
+    }
+  }
+
+}
